@@ -1,17 +1,19 @@
-FROM httpd:2.4.
+FROM httpd
 
-RUN mkdir /BryanRestrepo-2503285
+RUN rm -f /usr/local/apache2/htdocs/index.html
 
-RUN chmod -R 777 /BryanRestrepo-2503285
+RUN mkdir /Bryan-2503285
 
-COPY recursos/img2.jpg /BryanRestrepo-2503285
+RUN chmod -R 777 /Bryan-2503285
 
-COPY 4/template4/ /usr/local/apache2/htdocs/
+COPY recursos/img2.jpg /Bryan-2503285
 
-COPY main.sh /BryanRestrepo-2503285
+COPY main.sh /Bryan-2503285
 
-WORKDIR /BryanRestrepo-2503285
+RUN chmod +x /Bryan-2503285/main.sh
 
-RUN chmod +x /BryanRestrepo-2503285/main.sh
+RUN /Bryan-2503285/main.sh
 
-CMD ["/BryanRestrepo-2503285/main.sh"]
+COPY template204/free-travel-website-template/* /usr/local/apache2/htdocs/
+
+CMD ["httpd", "-D", "FOREGROUND"]

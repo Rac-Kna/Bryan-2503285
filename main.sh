@@ -1,4 +1,3 @@
-for i in {1...100}; do
-touch [BryanRestrepo]-archivo$i.txt
- 
-tail -f /dev/null
+for i in $(seq 1 100); do
+    touch /Bryan-2503285/bryan-04-archivo$i.txt
+done

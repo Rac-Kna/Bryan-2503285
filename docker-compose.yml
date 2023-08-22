@@ -1,13 +1,17 @@
 version: '3'
+networks:
+  mynetwork:
+    name: mynetwork
+    driver: bridge
 services:
   servicio1:
     build:
-      context: . 
-      dockerfile: dockerfile
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8204:80"
     volumes:
-      - datadrive:/BryanRestrepo-2503285
+      - C:\Users\brian\OneDrive\Documentos\Contenedores\BryanRestrepo-2503285\datadrive:/datadrive
     networks:
       - mynetwork
   servicio2:
@@ -21,8 +25,3 @@ services:
       MYSQL_PASSWORD: myuserpassword
     networks:
       - mynetwork
-networks:
-  mynetwork:
-volumes:
-  datadrive:
-  
