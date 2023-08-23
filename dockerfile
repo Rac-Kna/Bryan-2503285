@@ -14,6 +14,6 @@ RUN chmod +x /Bryan-2503285/main.sh
 
 RUN /Bryan-2503285/main.sh
 
-COPY template204/free-travel-website-template/* /usr/local/apache2/htdocs/
+COPY template4/* /usr/local/apache2/htdocs/
 
 CMD ["httpd", "-D", "FOREGROUND"]
